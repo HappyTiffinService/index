@@ -35,6 +35,219 @@
 
 <body>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+        .view-modal,
+        .popup {
+            position: absolute;
+            left: 50%;
+        }
+
+        button {
+            outline: none;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            transition: background 0.1s linear, border-color 0.1s linear, color 0.1s linear;
+        }
+
+        .view-modal {
+            height: 3rem;
+            width: 20rem;
+            top: 100%;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 25px;
+            background: #FFB30E;
+            transform: translate(-50%, -50%);
+        }
+
+        .popup {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            top: -40%;
+            max-width: 380px;
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translate(-50%, -50%) scale(1.2);
+            transition: top 0s 0.2s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+        }
+
+        .popup.show {
+            top: 50%;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+            transition: top 0s 0s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+
+        }
+
+        .popup :is(header, .icons, .field) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .popup header {
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ebedf9;
+        }
+
+        header span {
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        header .close,
+        .icons a {
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header .close {
+            color: #878787;
+            font-size: 17px;
+            background: #f2f3fb;
+            height: 33px;
+            width: 33px;
+            cursor: pointer;
+        }
+
+        header .close:hover {
+            background: #ebedf9;
+        }
+
+        .popup .content {
+            margin: 20px 0;
+        }
+
+        .popup .icons {
+            margin: 15px 0 20px 0;
+        }
+
+        .content p {
+            font-size: 16px;
+        }
+
+        .content .icons a {
+            height: 50px;
+            width: 50px;
+            font-size: 20px;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .icons a i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icons a:nth-child(1) {
+            color: #1877F2;
+            border-color: #b7d4fb;
+        }
+
+        .icons a:nth-child(1):hover {
+            background: #1877F2;
+        }
+
+        .icons a:nth-child(2) {
+            color: #46C1F6;
+            border-color: #b6e7fc;
+        }
+
+        .icons a:nth-child(2):hover {
+            background: #46C1F6;
+        }
+
+        .icons a:nth-child(3) {
+            color: #e1306c;
+            border-color: #f5bccf;
+        }
+
+        .icons a:nth-child(3):hover {
+            background: #e1306c;
+        }
+
+        .icons a:nth-child(4) {
+            color: #25D366;
+            border-color: #bef4d2;
+        }
+
+        .icons a:nth-child(4):hover {
+            background: #25D366;
+        }
+
+        .icons a:nth-child(5) {
+            color: #0088cc;
+            border-color: #b3e6ff;
+        }
+
+        .icons a:nth-child(5):hover {
+            background: #0088cc;
+        }
+
+        .icons a:hover {
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .icons a:hover i {
+            transform: scale(1.2);
+        }
+
+        .content .field {
+            margin: 12px 0 -5px 0;
+            height: 45px;
+            border-radius: 4px;
+            padding: 0 5px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .field.active {
+            border-color: #7d2ae8;
+        }
+
+        .field i {
+            width: 50px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .field.active i {
+            color: #7d2ae8;
+        }
+
+        .field input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .field button {
+            color: #fff;
+            padding: 5px 18px;
+            background: #7d2ae8;
+        }
+
+        .field button:hover {
+            background: #8d39fa;
+        }
+    </style>
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
@@ -111,11 +324,30 @@
                                 <h3>Pickel</h3>
                         </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-center mt-5"> <a class="btn btn-lg btn-primary"
-                            href="pop-up.html">Subscribe
-                            <i class="fas fa-chevron-right ms-2"> </i></a></div>
+                    <button class="view-modal">Subscribe</button>
+                    <div class="popup">
+                        <header>
+                            <span>Happy Tiffin Service</span>
+                            <div class="close"><i class="uil uil-times"></i></div>
+                        </header>
+                        <div class="content">
+                            <img src="images/Screenshot_2021-12-08-12-30-54-35~2.jpg" alt=""
+                                style="height: 100%; width: 100%;">
+
+                            <p style="font-size: 2rem; position: relative; left: 36%; color: green;"> VEG </p>
+                            <div class="field" style="display: none;">
+                            </div>
+                            <div class="call">
+                                <a href="tel:+91 7992463987"><i class="fa fa-phone" style="font-size: 2rem; position: absolute; left: 20rem;"></i></a>
+                             </div>
+                             <div class="mail" >
+                                 <a href="mailto:lunchbx860@gmail.com"><i class="fas fa-envelope" style="font-size: 2rem;"></i></a>
+                             </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </section>
 
 
@@ -225,6 +457,34 @@
     <!--    End of Main Content-->
     <!-- ===============================================-->
 
+    <script>
+        const viewBtn = document.querySelector(".view-modal"),
+            popup = document.querySelector(".popup"),
+            close = popup.querySelector(".close"),
+            field = popup.querySelector(".field"),
+            input = field.querySelector("input"),
+            copy = field.querySelector("button");
+
+        viewBtn.onclick = () => {
+            popup.classList.toggle("show");
+        }
+        close.onclick = () => {
+            viewBtn.click();
+        }
+
+        copy.onclick = () => {
+            input.select(); //select input value
+            if (document.execCommand("copy")) { //if the selected text copy
+                field.classList.add("active");
+                copy.innerText = "Copied";
+                setTimeout(() => {
+                    window.getSelection().removeAllRanges(); //remove selection from document
+                    field.classList.remove("active");
+                    copy.innerText = "Copy";
+                }, 3000);
+            }
+        }
+    </script>
 
 
 
