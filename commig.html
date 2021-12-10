@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Happy Tiffin Service</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <section class="py-5 overflow-hidden bg-primary" id="home">
+            <div class="container">
+                <div class="row flex-center">
+                    <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0"><a class="img-landing-banner"
+                            href="#!"><img class="img-fluid" src="assets/img/gallery/hero-header.png"
+                                alt="hero-header" /></a></div>
+                    <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
+                        <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">COMING SOON!</h1>
+                        <h1 class="text-800 mb-5 fs-4">We Are Launching Soon<br class="d-none d-xxl-block" />!! <br>
+                            Join Today For Early Access</h1>
+
+                            <p id="demo" style="font-size: 2rem;"></p>
+
+                        <h1 class="text-805 mb-5 fs-4">Get Early Access</h1>
+                        <div class="card w-xxl-75">
+                            <div class="card-body">
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <button class="nav-link active mb-3" id="nav-home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                            aria-selected="true"><i
+                                                class="fas fa-hamburger me-2"></i>LunchBox.co</button>
+                                    </div>
+                                </nav>
+                                <div class="tab-content mt-3" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                        aria-labelledby="nav-home-tab">
+                                        <form class="row gx-2 gy-2 align-items-center">
+                                            <div class="col">
+                                                <div class="input-group-icon"><i
+                                                        class="fas fa-map-marker-alt text-danger input-box-icon"></i>
+                                                    <label class="visually-hidden" for="inputDelivery">Address</label>
+                                                    <input class="form-control input-box form-foodwagon-control"
+                                                        id="inputDelivery" type="text"
+                                                        placeholder="Enter Your Address" />
+                                                </div>
+                                                <br>
+                                                <div class="input-group-icon"><i
+                                                        class="fas fa-envelope text-danger input-box-icon"></i>
+                                                    <label class="visually-hidden" for="inputDelivery">Address</label>
+                                                    <input class="form-control input-box form-foodwagon-control"
+                                                        id="inputDelivery" type="text"
+                                                        placeholder="Enter Your Email-Address" />
+                                                </div>
+                                            </div>
+                                            <div class="text-center mt-3 me-6">
+                                                <button class="btn btn-danger" type="submit">Find Food</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+    <script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap"
+        rel="stylesheet">
+</body>
+
+</html>
